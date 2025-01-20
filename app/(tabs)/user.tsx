@@ -32,7 +32,7 @@ export default function UserScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F5F5F5",
+    backgroundColor: "#404040",
     padding: 16,
   },
   title: {
@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 16,
     textAlign: "center",
+    color:"#ffffff"
   },
   infoBox: {
     flexDirection: "row",

@@ -39,7 +39,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F5F5F5",
+    backgroundColor: "#404040",
     padding: 16,
   },
   container1: {
@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 16,
     textAlign: "center",
+    color: "#FFFFFF"
   },
   imageContainer: {
     flexDirection: "row",

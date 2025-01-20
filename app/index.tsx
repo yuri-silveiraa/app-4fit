@@ -20,7 +20,6 @@ export default function LoginScreen() {
     setTimeout(() => {
       setLoading(false);
       if (email === "usuario@example.com" && password === "123456") {
-        Alert.alert("Bem-vindo!", "Login realizado com sucesso.");
         router.push("/(tabs)/home"); // Redireciona para a página inicial
       } else {
         Alert.alert("Erro", "Credenciais inválidas.");
