@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from "react-native";
 import { useRouter } from "expo-router";
+import Touchable from "../../../components/button";
 
 const exercises = [
   { id: "1", name: "Supino Reto", videoUrl: "https://example.com/supino.mp4", description: "Exercício para o peitoral." },
@@ -12,36 +13,28 @@ export default function TrainingDietScreen() {
   const router = useRouter();
 
   const renderItem = ({ item }: { item: typeof exercises[0] }) => (
-    <TouchableOpacity
-      style={styles.item}
-      onPress={() =>
-        router.push({
-          pathname: `/training-detail/${item.id}`,
-          params: { name: item.name, videoUrl: item.videoUrl, description: item.description },
-        })
-      }
-    >
-      <Text style={styles.itemText}>{item.name}</Text>
-    </TouchableOpacity>
+    <Touchable 
+      text={item.name}
+      onPress={() => router.push({
+        pathname: `./training/training-detail/${item.id}`,
+        params: { name: item.name, videoUrl: item.videoUrl, description: item.description }
+      })} 
+    />
   );
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Dieta</Text>
-      <TouchableOpacity
-        style={styles.item}
-        onPress={() => router.push("/my-diet/[id]")}
-      >
-        <Text style={styles.itemText}>Sua Dieta</Text>
-      </TouchableOpacity>
+      <Touchable
+        text="Sua Dieta"
+        onPress={() => router.push("./my-diet/[id].tsx")}
+      />
 
       <Text style={styles.title}>Treinos</Text>
-      <TouchableOpacity
-        style={styles.item}
-        onPress={() => router.push("/training/[id]")}
-      >
-        <Text style={styles.itemText}>Seu Treino</Text>
-      </TouchableOpacity>
+      <Touchable 
+        text="Seu Treino"
+        onPress={() => router.push("./my-training/[id].tsx")}
+      />
 
       <FlatList
         data={exercises}
@@ -68,15 +61,5 @@ const styles = StyleSheet.create({
   },
   list: {
     marginTop: 16,
-  },
-  item: {
-    padding: 16,
-    backgroundColor: "#E0E0E0",
-    borderRadius: 8,
-    marginBottom: 12,
-  },
-  itemText: {
-    fontSize: 18,
-    fontWeight: "bold",
   }
 });

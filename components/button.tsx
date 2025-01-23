@@ -1,24 +1,31 @@
-import { Pressable, StyleSheet, Text } from "react-native";
+import { router } from "expo-router";
+import { Pressable, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 type Props = {
     text: string,
     onPress: () => void
 }
 
-export default function Button({text, onPress}: Props){
+export default function Touchable({text, onPress}: Props){
     return (
-        <Pressable onPress={onPress} style={styles.button}>
-            <Text>{text}</Text>
-        </Pressable>
+        <TouchableOpacity
+            style={styles.item}
+            onPress={onPress}
+        >
+            <Text style={styles.itemText}>{text}</Text>
+        </TouchableOpacity>
     )
 }
 
 const styles = StyleSheet.create({
-    button: {
-        backgroundColor: '#FF0000',
-        padding: 10,
-        borderRadius: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
+    item: {
+        padding: 16,
+        backgroundColor: "#E0E0E0",
+        borderRadius: 8,
+        marginBottom: 12,
+    },
+    itemText: {
+        fontSize: 18,
+        fontWeight: "bold",
     }
 })
